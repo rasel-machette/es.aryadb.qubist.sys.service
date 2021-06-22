@@ -35,28 +35,28 @@ public class SubtasksControllerClass {
 	
 	@Test
 	public void insertSubtasksTest() {
-		Subtasks subtasks = new Subtasks("1","Hridoy","fhghg","cdcgf","kjhj","hgf");
+		Subtasks subtasks = new Subtasks(1L,"Hridoy","fhghg","cdcgf","kjhj","hgf");
 		when(subtasksRepository.save(subtasks)).thenReturn(subtasks);
 		assertEquals(subtasks, subtasksService.insertSubtasks(subtasks));
 	}
 
 	@Test
 	public void getAllSubtasksTest() {
-		when(subtasksRepository.findAll()).thenReturn(Stream.of(new Subtasks("1","Hridoy","fhghg","cdcgf","kjhj","hgf")).collect(Collectors.toList()));
+		when(subtasksRepository.findAll()).thenReturn(Stream.of(new Subtasks(1L,"Hridoy","fhghg","cdcgf","kjhj","hgf")).collect(Collectors.toList()));
 		assertEquals(1, subtasksService.getAllSubtasks().size());
 	}
 	
 	@Test
 	public void getSubtasksByIdstoryTest() throws ResourceNotFoundException {
 		String subtasksIdstory= "Hridoy";
-		when(subtasksRepository.findByIdstory(subtasksIdstory)).thenReturn(Stream.of(new Subtasks("1","Hridoy","fhghg","cdcgf","kjhj","hgf")).collect(Collectors.toList()));
+		when(subtasksRepository.findByIdstory(subtasksIdstory)).thenReturn(Stream.of(new Subtasks(1L,"Hridoy","fhghg","cdcgf","kjhj","hgf")).collect(Collectors.toList()));
 		Assert.assertEquals(true, subtasksService.getSubtasksByIdstory(subtasksIdstory).toString().contains("Hridoy"));
 
    }
 	@Test
 	public void getSubtasksByAssignedTest() throws ResourceNotFoundException {
 		String subtasksAssigned= "ghg";
-		when(subtasksRepository.findByAssigned(subtasksAssigned)).thenReturn(Stream.of(new Subtasks("1","Hridoy","fhghg","cdcgf","kjhj","hgf")).collect(Collectors.toList()));
+		when(subtasksRepository.findByAssigned(subtasksAssigned)).thenReturn(Stream.of(new Subtasks(1L,"Hridoy","fhghg","cdcgf","kjhj","hgf")).collect(Collectors.toList()));
 		Assert.assertEquals(true, subtasksService.getSubtasksByAssigned(subtasksAssigned).toString().contains("ghg"));
 
    }

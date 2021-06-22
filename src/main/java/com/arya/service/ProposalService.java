@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.arya.controller.ProposalController;
 import com.arya.entities.Proposal;
+import com.arya.entities.Subtasks;
 import com.arya.exception.ResourceNotFoundException;
 import com.arya.repository.ProposalRepository;
 @Service
@@ -80,7 +81,7 @@ public class ProposalService {
 					return ResponseEntity.ok().body(proposal);
 		}
 			
-		
+
 
 	public Proposal insertProposal(Proposal proposal) {
 		LOGGER.info("Start process");
@@ -104,7 +105,7 @@ public class ProposalService {
 		return ResponseEntity.ok(updatedProposal);
 	}
 
-	public Map<String, Boolean> deleteProposalById(Long proposalId)
+	public Map<String, Boolean> deleteProposalById(long proposalId)
 			throws ResourceNotFoundException {
 		
 		LOGGER.info("Start process");

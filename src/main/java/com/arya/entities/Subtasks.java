@@ -1,12 +1,16 @@
 package com.arya.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,12 +19,10 @@ public class Subtasks {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String id;
+	private Long id;
 	
 	@Column(name = "Component")
 	private String component;
-	
-	private String idstory;
 	
 	@Column(name = "Name")
 	private String name;
@@ -31,29 +33,31 @@ public class Subtasks {
 	@Column(name = "Assigned")
 	private String assigned;
 
-    
-	public Subtasks() {
+	private String idstory;
+	
+	
+    Subtasks() {
 		super();
 	}
 
 
-	public Subtasks(String id, String component, String idstory, String name, String description, String assigned) {
+	public Subtasks(Long id, String component, String name, String description, String assigned, String idstory) {
 		super();
 		this.id = id;
 		this.component = component;
-		this.idstory = idstory;
 		this.name = name;
 		this.description = description;
 		this.assigned = assigned;
+		this.idstory = idstory;
 	}
 
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -65,16 +69,6 @@ public class Subtasks {
 
 	public void setComponent(String component) {
 		this.component = component;
-	}
-
-
-	public String getIdstory() {
-		return idstory;
-	}
-
-
-	public void setIdstory(String idstory) {
-		this.idstory = idstory;
 	}
 
 
@@ -108,11 +102,22 @@ public class Subtasks {
 	}
 
 
+	public String getIdstory() {
+		return idstory;
+	}
+
+
+	public void setIdstory(String idstory) {
+		this.idstory = idstory;
+	}
+
+
 	@Override
 	public String toString() {
-		return "Subtasks [id=" + id + ", component=" + component + ", idstory=" + idstory + ", name=" + name
-				+ ", description=" + description + ", assigned=" + assigned + "]";
+		return "Subtasks [id=" + id + ", component=" + component + ", name=" + name + ", description=" + description
+				+ ", assigned=" + assigned + ", idstory=" + idstory + "]";
 	}
+
 
 	
 }

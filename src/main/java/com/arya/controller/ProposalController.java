@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.arya.entities.Proposal;
+import com.arya.entities.Subtasks;
 import com.arya.exception.ResourceNotFoundException;
 import com.arya.service.ProposalService;
 
@@ -86,6 +87,7 @@ public class ProposalController {
 		 return proposalService.getProposalByPriority(proposalPriority);
 	}
 	 
+ 
 	 @PostMapping(
  	        value = "/proposal",
  	        consumes = MediaType.APPLICATION_JSON_VALUE)

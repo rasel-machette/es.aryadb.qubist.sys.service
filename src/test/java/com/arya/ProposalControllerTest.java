@@ -36,23 +36,15 @@ public class ProposalControllerTest {
 	
 
 	@Test
-	public void insertProposalTest() {
-		Proposal proposal = new Proposal(5L,"Hridoy","fhghg","cdcgf","kjhj","hgf");
-		when(proposalRepository.save(proposal)).thenReturn(proposal);
-		assertEquals(proposal, proposalService.insertProposal(proposal));
-	}
-	
-
-	@Test
 	public void getAllProposalTest() {
-		when(proposalRepository.findAll()).thenReturn(Stream.of(new Proposal(5L,"Hridoy","fhghg","cdcgf","kjhj","hgf")).collect(Collectors.toList()));
+		when(proposalRepository.findAll()).thenReturn(Stream.of(new Proposal(1L,"Hridoy","fhghg","cdcgf","kjhj","hgf")).collect(Collectors.toList()));
 		assertEquals(1, proposalService.getAllProposal().size());
 	}
 
 	@Test
 	public void getProposalByNameTest() throws ResourceNotFoundException {
 		String proposalName= "Hridoy";
-		when(proposalRepository.findByName(proposalName)).thenReturn(Stream.of(new Proposal(5L,"Hridoy","fhghg","cdcgf","kjhj","hgf")).collect(Collectors.toList()));
+		when(proposalRepository.findByName(proposalName)).thenReturn(Stream.of(new Proposal(1L,"Hridoy","fhghg","cdcgf","kjhj","hgf")).collect(Collectors.toList()));
 		Assert.assertEquals(true, proposalService.getProposalByName(proposalName).toString().contains("Hridoy"));
 
 }
@@ -60,14 +52,14 @@ public class ProposalControllerTest {
 	@Test
 	public void getProposalBySummaryTest() throws ResourceNotFoundException {
 		String proposalSummary= "fhghg";
-		when(proposalRepository.findBySummary(proposalSummary)).thenReturn(Stream.of(new Proposal(5L,"Hridoy","fhghg","cdcgf","kjhj","hgf")).collect(Collectors.toList()));
+		when(proposalRepository.findBySummary(proposalSummary)).thenReturn(Stream.of(new Proposal(1L,"Hridoy","fhghg","cdcgf","kjhj","hgf")).collect(Collectors.toList()));
 		Assert.assertEquals(true, proposalService.getProposalBySummary(proposalSummary).toString().contains("fhghg"));
 
 }	
 	@Test
 	public void getProposalByDescriptionTest() throws ResourceNotFoundException {
 		String proposalDescription= "cdcgf";
-		when(proposalRepository.findByDescription(proposalDescription)).thenReturn(Stream.of(new Proposal(5L,"Hridoy","fhghg","cdcgf","kjhj","hgf")).collect(Collectors.toList()));
+		when(proposalRepository.findByDescription(proposalDescription)).thenReturn(Stream.of(new Proposal(1L,"Hridoy","fhghg","cdcgf","kjhj","hgf")).collect(Collectors.toList()));
 		Assert.assertEquals(true, proposalService.getProposalByDescription(proposalDescription).toString().contains("cdcgf"));
 
 }
@@ -75,14 +67,14 @@ public class ProposalControllerTest {
 	@Test
 	public void getProposalByOwnerTest() throws ResourceNotFoundException {
 		String proposalOwner= "kjhj";
-		when(proposalRepository.findByOwner(proposalOwner)).thenReturn(Stream.of(new Proposal(5L,"Hridoy","fhghg","cdcgf","kjhj","hgf")).collect(Collectors.toList()));
+		when(proposalRepository.findByOwner(proposalOwner)).thenReturn(Stream.of(new Proposal(1L,"Hridoy","fhghg","cdcgf","kjhj","hgf")).collect(Collectors.toList()));
 		Assert.assertEquals(true, proposalService.getProposalByOwner(proposalOwner).toString().contains("kjhj"));
 
 }
 	@Test
 	public void getProposalByPriorityTest() throws ResourceNotFoundException {
 		String proposalPriority= "hgf";
-		when(proposalRepository.findByPriority(proposalPriority)).thenReturn(Stream.of(new Proposal(5L,"Hridoy","fhghg","cdcgf","kjhj","hgf")).collect(Collectors.toList()));
+		when(proposalRepository.findByPriority(proposalPriority)).thenReturn(Stream.of(new Proposal(1L,"Hridoy","fhghg","cdcgf","kjhj","hgf")).collect(Collectors.toList()));
 		Assert.assertEquals(true, proposalService.getProposalByPriority(proposalPriority).toString().contains("hgf"));
 
     }

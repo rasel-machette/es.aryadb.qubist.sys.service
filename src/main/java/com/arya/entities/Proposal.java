@@ -1,5 +1,6 @@
 package com.arya.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,8 +34,9 @@ public class Proposal {
 	@Column(name = "Priority")
 	private String priority;
 	
-	@ManyToOne
-	 @JoinColumn(name = "idstory", insertable=false, updatable=false)
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	 @JoinColumn(name = "idstory", insertable=true, updatable=true)
 	 private Subtasks subtasks;
 	
 	public Proposal() {
@@ -99,9 +101,19 @@ public class Proposal {
 		this.priority = priority;
 	}
 
+	public Subtasks getSubtasks() {
+		return subtasks;
+	}
+
+	public void setSubtasks(Subtasks subtasks) {
+		this.subtasks = subtasks;
+	}
+
 	@Override
 	public String toString() {
 		return "Proposal [id=" + id + ", name=" + name + ", summary=" + summary + ", description=" + description
-				+ ", owner=" + owner + ", priority=" + priority + "]";
+				+ ", owner=" + owner + ", priority=" + priority + ", subtasks=" + subtasks + "]";
 	}
+
+
 }

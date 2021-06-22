@@ -33,14 +33,15 @@ public class SubtasksController {
 		 return this.subtasksService.getAllSubtasks();
 		
 	}
-	
 	 @GetMapping(
 	   	        value = "/subtask", params = "idstory",
 	   	        produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Subtasks>> getSubtasksByIdstory(@RequestParam(value = "idstory") String subtasksIdstory)
 			throws ResourceNotFoundException {
 		 return subtasksService.getSubtasksByIdstory(subtasksIdstory);
-	}
+	} 
+	 
+	 
 
 	 @GetMapping(
 	   	        value = "/subtask", params = "assigned",
